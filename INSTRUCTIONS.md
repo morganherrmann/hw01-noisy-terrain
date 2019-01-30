@@ -1,25 +1,13 @@
-# CIS 566 Homework 1: Noisy Terrain
+# Noise Based Terrain Generation
 
-## Objective
-- Continue practicing WebGL and Typescript
-- Experiment with noise functions to procedurally generate the surface of a planet
+## Morgan Herrmann - moher@seas.upenn.edu
+- https://morganherrmann.github.io/noisy-terrain/
+- https://www.morganherrmann.com/
 
-## Base Code
-The code we have provided for this assignment features the following:
-- A subdivided plane rendered with a shader that deforms it with a sine curve
-and applies a blue distance fog to it to blend it into the background. This
-shader also provides a few noise functions that include "seed" input; this
-value lets you offset the input vec2 by some constant value so that you can
-get two different noise values for the same input position.
-- A movable camera like the one provided with homework 0
-- A keyboard input listener that, at present, listens for the WASD keys
-and updates a `vec2` in the plane shader representing a 2D position
-- A square that spans the range [-1, 1] in X and Y that is rendered with a
-shader that does not apply a projection matrix to it, thus rendering it as the
-"background" of your scene
+## Terrain
 
-When you run the program, you should see this scene:
-![](startScene.png)
+![](https://assets.rbl.ms/13988883/980x.jpg)
+
 
 ## Assignment Requirements
 - __(75 points)__ Modify the provided terrain shader so that it incorporates various noise
