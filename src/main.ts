@@ -13,6 +13,9 @@ import ShaderProgram, {Shader} from './rendering/gl/ShaderProgram';
 const controls = {
   tesselations: 5,
   'Load Scene': loadScene, // A function pointer, essentially
+  watercolor: [180, 250, 230],
+  PeakHeight: 0,
+  DesertCycleSpeed: 35,
 };
 
 let square: Square;
@@ -22,6 +25,7 @@ let aPressed: boolean;
 let sPressed: boolean;
 let dPressed: boolean;
 let planePos: vec2;
+let time: number = 0;
 
 function loadScene() {
   square = new Square(vec3.fromValues(0, 0, 0));
@@ -33,7 +37,7 @@ function loadScene() {
   aPressed = false;
   sPressed = false;
   dPressed = false;
-  planePos = vec2.fromValues(0,0);
+  planePos = vec2.fromValues(0,120);
 }
 
 function main() {
@@ -83,6 +87,7 @@ function main() {
   // Add controls to the gui
   const gui = new DAT.GUI();
 
+
   // get canvas and webgl context
   const canvas = <HTMLCanvasElement> document.getElementById('canvas');
   const gl = <WebGL2RenderingContext> canvas.getContext('webgl2');
@@ -112,6 +117,19 @@ function main() {
     new Shader(gl.FRAGMENT_SHADER, require('./shaders/flat-frag.glsl')),
   ]);
 
+  gui.add(controls, 'PeakHeight', 0.0, 2.0).onChange(function(val: number){
+
+    lambert.setPeakHeight(val);
+
+  });
+
+
+  gui.add(controls, 'DesertCycleSpeed', 0.0, 60.0).onChange(function(val: number){
+
+    lambert.setDesertVegetation(val);
+
+  });
+
   function processKeyPresses() {
     let velocity: vec2 = vec2.fromValues(0,0);
     if(wPressed) {
@@ -134,18 +152,22 @@ function main() {
 
   // This function will be called every frame
   function tick() {
+    //lambert.setPeakHeight(10.0);
+    //flat.setPeakHeight(controls.PeakHeight);
     camera.update();
+    //console.log(camera.controls.eye[0]);
     stats.begin();
     gl.viewport(0, 0, window.innerWidth, window.innerHeight);
     renderer.clear();
     processKeyPresses();
     renderer.render(camera, lambert, [
       plane,
-    ]);
+    ], time);
     renderer.render(camera, flat, [
       square,
-    ]);
+    ], time);
     stats.end();
+    time++;
 
     // Tell the browser to call `tick` again whenever it renders a new frame
     requestAnimationFrame(tick);
