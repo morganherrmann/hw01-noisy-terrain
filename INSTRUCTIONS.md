@@ -1,7 +1,7 @@
 # Noise Based Terrain Generation
 
 ## Morgan Herrmann - moher@seas.upenn.edu (moher)
-- ![DEMO](https://morganherrmann.github.io/noisy-terrain/)
+- https://morganherrmann.github.io/noisy-terrain - DEMO
 - https://www.morganherrmann.com/
 
 ## Terrain
