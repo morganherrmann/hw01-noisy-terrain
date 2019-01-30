@@ -21,4 +21,9 @@ Oasis Mountain forms based on exponential functions and fractal Brownian Motion,
 ### When placed in the demo, you can move RIGHT using 'D' to go to the cartoon mountains.  Moving left using 'A' will take you through the Tide Pools and after that, the Desert Oasis Mountains.
 
 
-![](https://giphy.com/embed/Zvw6OnYbryqKSqdysG)
+## Modifiable Features
+![](giphy.gif)
+
+In the upper right corner, you will find two features.
+- Peak Height: Adjust this slider to modify the peak height and distribution in the Dr. Seuss inspired mountain region. This function works by amplifying the noise for greater values.
+- Desert Cycle Speed: Use this slider to modify the speed at which the mountains sink and rise.  This function modifies the timing cycle of the mountain range, using a cosine curve with this value as an input, alongside time.
