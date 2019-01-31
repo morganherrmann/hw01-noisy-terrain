@@ -21,6 +21,8 @@ out vec4 out_Col; // This is the final output color that you will see on your
                     return fract(sin(dot(p + seed, vec2(127.1, 311.7))) * 43758.5453);
                   }
 
+//WORLD IS SPLIT INTO 3 REGIONS. DR SEUSS, BEACH, DESERT MOUNTAINS
+
 void main()
 {
 
@@ -30,7 +32,7 @@ void main()
 
     if (fs_Pos.x + u_PlanePos.x < 0.f){
 
-     ///-----OH, THE PLACES YOU'LL GO
+     ///-----DR SEUSS ------
    float t = clamp(smoothstep(10.0, 20.0, length(fs_Pos / 2.f)), 0.0, 1.0); // Distance fog
    out_Col = vec4(mix(vec3(0.5 * (fs_Sine + 1.0)), vec3(164.0 / 255.0, 233.0 / 255.0, 1.0), t), 1.0);
    ///water
@@ -113,7 +115,7 @@ void main()
  }
 } else if (fs_Pos.x + u_PlanePos.x < 350.f) {
 
-//------------- item 2-----------------------------
+//------------- GOO LAGOON-----------------------------
 float t = clamp(smoothstep(0.0, 5.0, fs_Pos.y), 0.0, 1.0); // Distance fog
 if (fs_Sine < 0.2f){
 colorA = vec3(126.f/255.f, 221.f/255.f, 228.f/255.f);
@@ -139,6 +141,8 @@ out_Col = vec4(mix(colorA, colorB, fs_Sine / 9.f), 1.f);
 
 
 } else  {
+
+  //SET dESERT REGION COLOR BASED ON HEIGHT
 
   colorA = vec3(255.f/255.f, 246.f/255.f, 211.f/255.f);
   colorB = vec3(209.f/255.f, 188.f/255.f, 112.f/255.f);

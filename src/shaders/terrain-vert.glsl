@@ -37,6 +37,8 @@ float Noise(int x, int y){
     return (fract(sin(dot(vec2(x, y), vec2(12.9898, 4.1414))) * 43758.5453));
 }
 
+
+//Noise interpolation 2D function
 float interpNoise2D(float x, float y){
 
     int intX =  int(x);
@@ -56,6 +58,7 @@ float interpNoise2D(float x, float y){
 
 }
 
+//Steppe-like FBM pattern
 float steppeFbm(float x, float y){
 
     float total = 0.f;
@@ -72,7 +75,7 @@ float steppeFbm(float x, float y){
 
 }
 
-
+// FBM function for 2D input
 float fbm(float x, float y){
 
     float total = 0.f;
@@ -89,6 +92,7 @@ float fbm(float x, float y){
 
 }
 
+//interpolation functions
 float linear_interpolate(float a, float b, float t){
   return a * (1.f - t) + b * t;
 }
@@ -98,7 +102,7 @@ float cosine_interpolation(float a, float b, float t){
   return linear_interpolate(a, b, cos_t);
 }
 
-//2x cubed - 3 x^2
+//Function for beach biome - tide pools
 void goolagoon(){
 
   fs_Pos = vs_Pos.xyz;
@@ -108,9 +112,6 @@ void goolagoon(){
   } else if (fs_Sine < 1.f){
     fs_Sine = 1.f;
   }
-  //fs_Sine += random1(vec2(vs_Pos.y, vs_Pos.z) , vec2(1.f, 3.f)) / 18.f;
-  //fs_Sine /=  3.5f * cos((u_Time + vs_Pos.x + u_PlanePos.x) / 50.f);
-  //fs_Sine = mod(floor(fs_Sine * 10.f), 2.f) * 0.9f;
 
   if (vs_Pos.x + u_PlanePos.x > 0.f){
 
@@ -135,7 +136,7 @@ void goolagoon(){
   gl_Position = u_ViewProj * modelposition;
 }
 
-
+//Function for DR SEUSS portion of environment
 void seuss(){
 
 
@@ -155,8 +156,6 @@ void seuss(){
    fs_Sine = 5.f;
 
  }
-
-
   if (modelposition.y > 10.f){
     modelposition.y = 10.f + rand / 5.f;
   }
@@ -173,7 +172,6 @@ void seuss(){
     modelposition.y = 0.1f;
 
   }
-
   fs_Pos = modelposition.xyz;
   modelposition = u_Model * modelposition;
   gl_Position = u_ViewProj * modelposition;
@@ -181,6 +179,7 @@ void seuss(){
 }
 
 
+//function for desert mountains using FBM - vary over time
 void desert(){
   fs_Pos = vs_Pos.xyz;
   float exp = smoothstep(0.1 ,0.9, vs_Pos.x + u_PlanePos.x);
@@ -203,7 +202,7 @@ void desert(){
 void main()
 {
 
-    ///-----OH, THE PLACES YOU'LL GO
+    ///-----OH, THE PLACES YOU'LL GO --- DR SEUSS---
 
   if (vs_Pos.x + u_PlanePos.x < 0.f){
 
@@ -213,16 +212,14 @@ void main()
 
  }
    else if (vs_Pos.x + u_PlanePos.x < 350.f){
-    //ITEM 2 -------------------------
-
+    //SHY GUY BEACH / GOO LAGOON-----
     goolagoon();
 
 
   } else {
 
+//-------DESERT BIOME----------
     desert();
-
-
   }
 
 
