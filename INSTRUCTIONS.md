@@ -21,7 +21,7 @@ SHY GUY BEACH
  * Gradual tide pools with randomized, noise-based sand texture.
  * Terrain implemented using a broad fractal brownian noise function, creating a smooth, bumpy texture. All points below a certain height were set to water.
  * Sand Texture - I noticed that lots of cartoons draw sand by peppering bright colors onto a solid tan color.  I used reds, blues, and green specks with random distribution to create the effect of sand.
- ![] (https://media.giphy.com/media/3oKHWh2PSp6mxGZG9i/giphy.gif)
+ ![](https://media.giphy.com/media/3oKHWh2PSp6mxGZG9i/giphy.gif)
 
 ![](https://drive.google.com/uc?export=view&id=1dgAa1tNew9ZN7jdZlcqyMxx9yhfKUts7)
 DESERT MOUNTAINS
