@@ -8,23 +8,24 @@
 - With cartoons as an inspiration, this terrain system was developed using WebGL and TypeScript.  
 - The user can move through various biomes using keyboard shortcuts (W/A/S/D), and can manipulate the camera by using the mouse.
          
-         
+### DR. SEUSS LAND        
 ![](https://drive.google.com/uc?export=view&id=1q-Xk3lnwXGWFyVdnX8bcnIFblukD9yT6)
-DR. SEUSS LAND 
 
 * Terrain implemented using sin and cosine curves randomized by fractal brownian motion.  Randomization of these curves with fractal motion causes small islands to be dispersed throughout the range, varying in height and color.
 * Color - The coloring pallette was stylized based on "Oh, the Places You'll Go!" Colors were mapped based on height, and every interval between colors was given a black color to simulate hand drawn ink lines.  Colors at each height also fade into other colors in proportion to distance.
 * The shapes of the peaks are modifiable, as well.  Please see "Modifiable Features" below.
 
+### SHY GUY BEACH
 ![](https://drive.google.com/uc?export=view&id=1XmwsUiZ0pWUAGwf6JoY8EQ636FOj9TxH)
-SHY GUY BEACH
+
  * Gradual tide pools with randomized, noise-based sand texture.
  * Terrain implemented using a broad fractal brownian noise function, creating a smooth, bumpy texture. All points below a certain height were set to water.
  * Sand Texture - I noticed that lots of cartoons draw sand by peppering bright colors onto a solid tan color.  I used reds, blues, and green specks with random distribution to create the effect of sand.
  ![](https://media.giphy.com/media/3oKHWh2PSp6mxGZG9i/giphy.gif)
 
+### DESERT MOUNTAINS
 ![](https://drive.google.com/uc?export=view&id=1dgAa1tNew9ZN7jdZlcqyMxx9yhfKUts7)
-DESERT MOUNTAINS
+
 * Terrain forms based on exponential functions and fractal Brownian Motion, which grow and shrink with respect to time. I computed fractal Brownian motion and applied an exponential function to create peaks that came to a sharp point.
 * Coloring is height based to create a water valley appearance at the bottom with visible jagged peaks at the top.
 
